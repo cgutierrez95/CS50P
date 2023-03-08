@@ -1,0 +1,22 @@
+from plates import is_valid
+
+def test_plates_starts_with_letters():
+    assert is_valid('50CS') == False
+    assert is_valid('15ABCD') == False
+    assert is_valid('123456') == False
+    assert is_valid('CS50') == True
+
+def test_plates_lenght():
+    assert is_valid('ThisisCS50') == False
+    assert is_valid('abcd') == True
+    assert is_valid('a') == False
+
+def test_plates_has_numbers():
+    assert is_valid('WASD09') == False
+    assert is_valid('wxyz13') == True
+    assert is_valid('WA0815') == False
+    assert is_valid('ab123e') == False
+
+def test_alphanumeric_characters():
+    assert is_valid("CS50!") == False
+    assert is_valid("3.14") == False
